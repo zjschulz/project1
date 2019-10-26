@@ -3,7 +3,7 @@ require './lib/project1'
 class Project1::CLI 
 
   def call
-    puts "Welcome to the D&D Class Spell Book!"
+    puts "Welcome to the D&D Class Book!"
     #menu to pick class > pick spells > view spell info
     list_job
     menu
@@ -13,23 +13,13 @@ class Project1::CLI
   def list_job
     #method used to list classes whom use spells
     puts "List of Classes"
-    puts <<-DOC.gsub /^\s*/, ''
-    1. Paladin
-    2. Druid
-    3. Cleric
-    DOC
-    #bard,cleric,druid,paladin,ranger,sorcerer,warlock,wizard
-    @jobs = Project1::Job.info
+    @jobs = Project1::Job.list
   end
   
-  def list_spells(job)
+  def list_info(job)
     #method used to capture list of spells specific to class
-    puts "#{job}'s Spells"
+    puts "#{job}'s Info"
     menu
-  end
-  
-  def spell_info
-    #method used to provide spell information
   end
   
   def menu
@@ -41,13 +31,10 @@ class Project1::CLI
       case input
       when "1"
         job = "Paladin"
-        list_spells(job)
+        list_info(job)
       when "2"
         job = "Druid"
-        list_spells(job)
-      when "3"
-        job = "Cleric"
-        list_spells(job)
+        list_info(job)
       when "list"
         list_job
       else
