@@ -14,12 +14,9 @@ class Project1::CLI
     #method used to list classes whom use spells
     puts "List of Classes"
     @jobs = Project1::Job.list
-  end
-  
-  def list_info(job)
-    #method used to capture list of spells specific to class
-    puts "#{job}'s Info"
-    menu
+    @jobs.each.each.with_index(1) do |job,i|
+      puts "#{i} #{job.name} - #{job.desc}"
+    end
   end
   
   def menu
@@ -28,14 +25,11 @@ class Project1::CLI
     while input != "exit"
       puts "Enter the number of the class, type list for class list, or type exit to leave"
       input = gets.strip.downcase
-      case input
-      when "1"
-        job = "Paladin"
-        list_info(job)
-      when "2"
-        job = "Druid"
-        list_info(job)
-      when "list"
+      
+      if input.to_i > 0 
+        thejob = @jobs[input.to_i-1]
+        puts "#{thejob.name} - #{thejob.desc}"
+      elsif input == "list"
         list_job
       else
         puts "Unsure of input, type list or exit"
