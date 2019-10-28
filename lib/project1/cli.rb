@@ -12,6 +12,7 @@ class Project1::CLI
   def list_horse
     puts "Horse Listings"
     @horses = Project1::Horse.list
+    end
   end
   
   def menu
