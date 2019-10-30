@@ -4,4 +4,4 @@ require "pry"
 
 require_relative "./project1/version"
 require_relative "./project1/cli"
-require_relative "./project1/horse"
+require_relative "./project1/scrape"

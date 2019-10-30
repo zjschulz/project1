@@ -1,10 +1,11 @@
 class Project1::Horse
-  
+
   attr_accessor :name, :desc, :url, :birthyear, :height, :price, :city, :state, :listdate, :hits
-  
+
   @@all = []
-  
-  def initialize
+
+  def initialize(hash_of_horses)
+    #should take in an argument of a hash and use meta-programming to assign the newly created listing attributes and values per the key/value pairs of the hash.
     @@all << self
   end
   
@@ -12,31 +13,14 @@ class Project1::Horse
     @@all
   end
   
-  def self.list
-    self.scrape
+  def self.create_from_collection(Project1::Scrape.scrape)
+    #should take in an array of hashes. In fact, we will call Horse.create_from_collection with the return value of the Scraper.scrape method as the argument
+    #should iterate over the array of hashes and create a new individual horse using each hash
   end
 
-  def self.scrape
-    site = "https://www.retiredracehorseproject.org/ottb-horses-for-sale/general-listings"
-    doc = Nokogiri::HTML(open(site))
-    horses = []
-    hash = doc.css('tr.adsmanager_table_description.trcategory_1')
-    hash.each do |listing|
-      horse = {
-        name: listing.css('h4').text.strip!,
-        desc: listing.css('div.desc').text.strip!,
-        url: listing.css('a')[0].attributes['href'].value,
-        birthyear: listing.css('span.fad_age').text.split(":")[1].strip!,
-        height: listing.css('span.fad_heightnew').text.split(":")[1].strip!,
-        price: listing.css('span.fad_price').text.split(":")[1].strip!,
-        city: listing.css('span.fad_City').text.split(":")[1].strip!,
-        state: listing.css('span.fad_statenew').text.split(":")[1].strip!,
-        listdate: listing.css('td.tdcenter.column_date.hidden-phone').text.strip!.split[0],
-        hits: listing.css('td.tdcenter.column_date.hidden-phone').text.strip!.split[1]
-      }
-      horses << horse
-    end
-    horses
+  #Do I really need this one?
+  def add_horse_attributes(attributes_hash)
+    #should iterate over the given hash and use meta-programming to dynamically assign the student attributes and values per the key/value pairs of the hash.
   end
 
 end

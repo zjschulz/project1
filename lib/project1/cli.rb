@@ -10,15 +10,15 @@ class Project1::CLI
   end
   
   def list_horse
-    puts "Horse Listings"
-    @horses = Project1::Horse.list
+    puts "Here are today's horse listings"
+    #returns a list of the horse listing by an index number, name, age, location, price
   end
   
   def menu
     #method used to dig into lists to obtain info
     input = nil 
     while input != "exit"
-      puts "Enter the number of the spell, type list for spell list, or type exit to leave"
+      puts "Enter the number of the hore, type list for all listings, or type exit to leave"
       input = gets.strip.downcase
       
       if input.to_i > 0 
