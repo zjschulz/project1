@@ -2,6 +2,16 @@ class Project1::Horse
   
   attr_accessor :name, :desc, :url, :birthyear, :height, :price, :city, :state, :listdate, :hits
   
+  @@all = []
+  
+  def initialize
+    @@all << self
+  end
+  
+  def self.all
+    @@all
+  end
+  
   def self.list
     self.scrape
   end
