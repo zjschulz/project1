@@ -11,6 +11,7 @@ class Project1::CLI
   
   def list_horse
     puts "Here are today's horse listings"
+    Project1::Horse.all
     #returns a list of the horse listing by an index number, name, age, location, price
   end
   
