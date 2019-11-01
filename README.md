@@ -1,10 +1,10 @@
-Hello World!
-
 # Project1
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/project1`. To experiment with that code, run `bin/console` for an interactive prompt.
+This is the CLI Data Gem project for the Procedural/Object Orientation Ruby Module of Flat Iron's Structure - Online Software Engineering bootcamp.
 
-TODO: Delete this and the text above, and describe your gem
+This project focuses on scraping and initializing data from a foreign website, then taking that data and incorporating it into a command line interface (CLI) for a user to use.
+
+My project's focus is to scrape retired racehorse listings from the official Retired Racehorse Project website. That data will then be incorporated into an interface that will allow the user to search/view numerous listings.
 
 ## Installation
 
@@ -24,7 +24,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To initialize the program:
+
+    $ ./bin/project1
+    
+Follow the instruction provided.  
 
 ## Development
 
