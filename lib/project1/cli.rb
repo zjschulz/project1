@@ -7,19 +7,19 @@ class Project1::CLI
     puts "Welcome to the Retired Racehorse Project!"
     list_horse
     menu
-    goodbye
   end
   
   def list_horse
     puts "Here are today's horse listings"
     @horse = Project1::Horse.all
     @horse.each.with_index(1) do |horse,i|
-      puts "#{i}. #{horse.name} - #{horse.birthyear} - #{horse.city}, #{horse.state} - #{horse.price}"
+      puts "#{i}. #{horse.name} - #{horse.city}, #{horse.state} - #{horse.price}"
     end
   end
   
   def menu
     #method used to dig into lists to obtain info
+    #Number off categories for menu. 1 for complete list of horses. 2 for search
     input = nil 
     while input != "exit"
       puts "Enter the number of the horse, type list for all listings, or type exit to leave"
@@ -31,6 +31,8 @@ class Project1::CLI
         puts "#{x.desc}"
       elsif input == "list"
         list_horse
+      elsif input == "exit"
+        goodbye
       else
         puts "Unsure of input, type list or exit"
       end
@@ -38,7 +40,7 @@ class Project1::CLI
   end
 
   def goodbye
-    puts "Happy Hunting, Adventurers!"
+    puts "Happy Trails, Equestrians!"
   end
   
 end
