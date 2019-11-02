@@ -18,8 +18,6 @@ class Project1::CLI
   end
   
   def menu
-    #method used to dig into lists to obtain info
-    #Number off categories for menu. 1 for complete list of horses. 2 for search
     input = nil 
     while input != "exit"
       puts "Enter the number of the horse, type list for all listings, or type exit to leave"

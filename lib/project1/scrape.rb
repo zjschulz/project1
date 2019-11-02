@@ -16,7 +16,8 @@ class Project1::Scrape
         city: listing.css('span.fad_City').text.split(":")[1].strip!,
         state: listing.css('span.fad_statenew').text.split(":")[1].strip!,
         listdate: listing.css('td.tdcenter.column_date.hidden-phone').text.strip!.split[0],
-        hits: listing.css('td.tdcenter.column_date.hidden-phone').text.strip!.split[1]
+        hits: listing.css('td.tdcenter.column_date.hidden-phone').text.strip!.split[1],
+        gender: listing.css('span.fad_gender').text.split(":")[1].strip!
       }
       horses << horse
     end
