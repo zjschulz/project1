@@ -1,10 +1,11 @@
 require './lib/project1'
+require 'colorize'
 
 class Project1::CLI 
 
   def call
     Project1::Horse.create_from_collection(horses = Project1::Scrape.scrape)
-    puts "Welcome to the Retired Racehorse Project!"
+    puts "Welcome to the Retired Racehorse Project!".colorize(:blue)
     puts ""
     menu
   end
@@ -28,15 +29,15 @@ class Project1::CLI
   def list
   #list horses
     puts "Here are today's horse listings"
+    puts ""
     @horse = Project1::Horse.all
     @horse.each.with_index(1) do |horse,i|
-      puts "#{i}. #{horse.name} - #{horse.city}, #{horse.state} - #{horse.price}"
+      puts "#{i} ".colorize(:green) + "#{horse.name} - #{horse.city}, #{horse.state} - #{horse.price}"
       end
-    menuoption
+    searchbynumber
   end
   
-  def menuoption
-    #diving into a horse by choice of number
+  def searchbynumber
     input = nil 
     while input != "exit"
       puts ""
@@ -45,13 +46,13 @@ class Project1::CLI
       if input.to_i > 0 
         x = @horse[input.to_i-1]
       	puts ""
-      	puts "Name: #{x.name}"
-      	puts "Year of Birth: #{x.birthyear}"
-      	puts "Gender: #{x.gender}"
-      	puts "Height: #{x.height}"
-      	puts "Price: #{x.price}"
-      	puts "Location: #{x.city}, #{x.state}"
-      	puts "More Info URL: #{x.url}"
+      	puts "Name:".colorize(:green) + " #{x.name}"
+      	puts "Year of Birth:".colorize(:green) + " #{x.birthyear}"
+      	puts "Gender:".colorize(:green) + " #{x.gender}"
+      	puts "Height:".colorize(:green) + " #{x.height}"
+      	puts "Price:".colorize(:green) + " #{x.price}"
+      	puts "Location:".colorize(:green) + " #{x.city}, #{x.state}"
+      	puts "More Info URL:".colorize(:green) + " https://www.retiredracehorseproject.org#{x.url}"
       elsif input == "list"
         list
       elsif input == "exit"
@@ -64,7 +65,7 @@ class Project1::CLI
 
   def goodbye
     puts ""
-    puts "Happy Trails, Equestrians!"
+    puts "Happy Trails, Equestrians!".colorize(:blue)
     exit
   end
   

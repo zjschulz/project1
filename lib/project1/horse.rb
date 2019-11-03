@@ -18,5 +18,18 @@ class Project1::Horse
       self.new(x)
     end
   end
+  
+  #in cli.rb @horse = Project1::Horse.all
+  def self.find_by_gender(gender)
+    self.all.find_all {|x| x.gender == gender}
+  end
+
+  def self.find_by_birthyear(year)
+    self.all.find_all {|x| x.birthyear == year}
+  end
+  
+  def self.find_by_state(state)
+    self.all.find_all {|x| x.state == state}
+  end
 
 end
