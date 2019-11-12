@@ -53,7 +53,7 @@ class Project1::CLI
       	puts "Year of Birth:".colorize(:green) + " #{x.birthyear}"
       	puts "Gender:".colorize(:green) + " #{x.gender}"
       	puts "Height:".colorize(:green) + " #{x.height}"
-      	puts "Price:".colorize(:green) + " #{x.price}"
+      	puts "Price: $".colorize(:green) + " #{x.price}"
       	puts "Location:".colorize(:green) + " #{x.city}, #{x.state}"
       	puts "More Info URL:".colorize(:green) + " https://www.retiredracehorseproject.org#{x.url}"
       elsif input == "list"
