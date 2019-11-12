@@ -13,8 +13,8 @@ class Project1::CLI
   def menu
     input = nil
     while input != "exit"
-      puts "To see all horse listings, type list."
-      puts "To exit the program, type exit."
+      puts "To see all horse listings, type 'list'"
+      puts "To exit the program, type 'exit'"
       input = gets.strip.downcase
       if input == "list"
         list
@@ -41,9 +41,12 @@ class Project1::CLI
     input = nil 
     while input != "exit"
       puts ""
-      puts "Enter the number of a horse for more info, type list for all listings, or type exit to leave the program"
+      puts "To view more information on a horse, type its '#'"
+      puts "To see all horse listings, type 'list'"
+      puts "To exit the program, type 'exit'"
+      puts ""
       input = gets.strip.downcase
-      if input.to_i > 0 
+      if input.to_i > 0 and input.to_i < @horse.length+1
         x = @horse[input.to_i-1]
       	puts ""
       	puts "Name:".colorize(:green) + " #{x.name}"
@@ -58,7 +61,7 @@ class Project1::CLI
       elsif input == "exit"
         goodbye
       else
-        puts "Unsure of input, type list or exit"
+        puts "Unsure of input!".colorize(:red)
       end
     end
   end

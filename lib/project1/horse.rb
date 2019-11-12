@@ -1,6 +1,6 @@
 class Project1::Horse
 
-  attr_accessor :name, :desc, :url, :birthyear, :height, :price, :city, :state, :listdate, :hits, :gender
+  attr_accessor :name, :url, :birthyear, :height, :price, :city, :state, :listdate, :hits, :gender
 
   @@all = []
 

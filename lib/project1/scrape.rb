@@ -8,7 +8,6 @@ class Project1::Scrape
     hash.each do |listing|
       horse = {
         name: listing.css('h4').text.strip!,
-        desc: listing.css('div.desc').text.strip!,
         url: listing.css('a')[0].attributes['href'].value,
         birthyear: listing.css('span.fad_age').text.split(":")[1].strip!,
         height: listing.css('span.fad_heightnew').text.split(":")[1].strip!,
