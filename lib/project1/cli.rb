@@ -27,7 +27,6 @@ class Project1::CLI
   end
     
   def list
-  #list horses
     puts "Here are today's horse listings"
     puts ""
     @horse = Project1::Horse.all
@@ -53,7 +52,7 @@ class Project1::CLI
       	puts "Year of Birth:".colorize(:green) + " #{x.birthyear}"
       	puts "Gender:".colorize(:green) + " #{x.gender}"
       	puts "Height:".colorize(:green) + " #{x.height}"
-      	puts "Price: $".colorize(:green) + " #{x.price}"
+      	puts "Price:".colorize(:green) + " $#{x.price}"
       	puts "Location:".colorize(:green) + " #{x.city}, #{x.state}"
       	puts "More Info URL:".colorize(:green) + " https://www.retiredracehorseproject.org#{x.url}"
       elsif input == "list"

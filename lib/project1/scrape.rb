@@ -11,7 +11,7 @@ class Project1::Scrape
         url: listing.css('a')[0].attributes['href'].value,
         birthyear: listing.css('span.fad_age').text.split(":")[1].strip!,
         height: listing.css('span.fad_heightnew').text.split(":")[1].strip!,
-        price: listing.css('span.fad_price').text.gsub("$","").gsub(",","").split(":")[1].strip!,
+        price: listing.css('span.fad_price').text.gsub("$","").gsub(",","").split(":")[1].gsub(/\A\p{Space}*/, ''),
         city: listing.css('span.fad_City').text.split(":")[1].strip!,
         state: listing.css('span.fad_statenew').text.split(":")[1].strip!,
         listdate: listing.css('td.tdcenter.column_date.hidden-phone').text.strip!.split[0],
