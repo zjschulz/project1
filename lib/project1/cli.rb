@@ -31,7 +31,7 @@ class Project1::CLI
     puts ""
     @horse = Project1::Horse.all
     @horse.each.with_index(1) do |horse,i|
-      puts "#{i} ".colorize(:green) + "#{horse.name} - #{horse.city}, #{horse.state} - #{horse.price}"
+      puts "#{i} ".colorize(:green) + "#{horse.name} - #{horse.city}, #{horse.state} - $#{horse.price}"
       end
     searchbynumber
   end
